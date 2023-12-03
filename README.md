@@ -8,6 +8,8 @@ Welcome to the Ingridentify Android App repository! This app is part of the Ingr
 - **Personalized Menu Suggestions:** Offers users personalized menu suggestions based on their pantry items.
 - **Detailed Cooking Recipes:** Provides step-by-step cooking recipes for a diverse culinary experience.
 
+## Screenshots
+
 ## Getting Started
 
 To get started with the Ingridentify Android App, follow these steps:
@@ -23,6 +25,68 @@ To get started with the Ingridentify Android App, follow these steps:
 
 3. **Build and Run:**
    Build and run the app on your Android device or emulator.
+
+## Project Structure
+
+The rough project structure is as follows:
+
+```
+app
+├── manifests
+│   └── AndroidManifest.xml
+├── java
+│   ├── com.ingridentify
+│   |   ├── components
+│   |   |   ├── EmailEditText.kt
+│   |   |   └── PasswordEditText.kt
+│   |   ├── ui
+│   |   |   ├── login
+│   |   |   |   └── LoginFragment.kt
+│   |   |   └── register
+│   |   |       └── RegisterFragment.kt
+│   |   ├── AuthActivity.kt
+│   |   ├── MainActivity.kt
+│   |   └── SplashActivity.kt
+│   ├── com.ingridentify (androidTest)
+|   |   └── ExampleInstrumentedTest.kt
+│   └── com.ingridentify (test)
+|       └── ExampleUnitTest.kt
+└── res
+    ├── drawable
+    |   ├── ic_email.xml
+    |   ├── ic_launcher_background.xml
+    |   ├── ic_launcher_foreground.xml
+    |   ├── ic_lock.xml
+    |   ├── ic_person.xml
+    |   └── typography.png
+    ├── layout
+    |   ├── activity_auth.xml
+    |   ├── activity_main.xml
+    |   ├── activity_splash.xml
+    |   ├── fragment_login.xml
+    |   └── fragment_register.xml
+    ├── navigation
+    |   └── auth_navigation.xml
+    └── values
+        ├── colors.xml
+        ├── strings.xml
+        └── themes
+            ├── themes.xml
+            └── themes.xml (night)
+
+Gradle Scripts
+├── build.gradle.kts (Project: Ingridentify)
+├── build.gradle.kts (Module: app)
+├── proguard-rules.pro (ProGuard Rules for ":app")
+├── gradle.properties (Project Properties)
+├── gradle-wrapper.properties (Gradle Version)
+├── local.properties (SDK Location)
+└── settings.gradle.kts (Project Settings)
+```
+
+## Dependencies
+
+The Ingridentify Android App utilizes the following dependencies:
 
 ## Issues
 

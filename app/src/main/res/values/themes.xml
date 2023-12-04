@@ -3,13 +3,11 @@
     <style name="Base.Theme.Ingridentify" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/blue</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/orange</item>
+        <item name="colorSecondary">@color/blue</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:colorBackground">@color/white</item>
         <item name="colorOnBackground">@color/black</item>
         <item name="colorPrimaryVariant">@color/light_blue</item>
-        <item name="colorOnSecondaryContainer">@color/orange</item>
-        <item name="colorOnSurface">@color/orange</item>
     </style>
 
     <style name="Theme.Ingridentify" parent="Base.Theme.Ingridentify" />
@@ -22,23 +20,22 @@
     </style>
 
     <style name="Input">
-        <item name="boxCornerRadiusTopStart">20dp</item>
-        <item name="boxCornerRadiusBottomEnd">20dp</item>
-        <item name="boxCornerRadiusTopEnd">2dp</item>
-        <item name="boxCornerRadiusBottomStart">2dp</item>
+        <item name="boxCornerRadiusTopStart">11dp</item>
+        <item name="boxCornerRadiusTopEnd">11dp</item>
+        <item name="boxCornerRadiusBottomStart">11dp</item>
+        <item name="boxCornerRadiusBottomEnd">11dp</item>
     </style>
 
     <style name="Button">
         <item name="android:textSize">16sp</item>
         <item name="android:padding">14dp</item>
-        <item name="strokeColor">?colorSecondary</item>
+        <item name="strokeColor">?colorPrimary</item>
         <item name="strokeWidth">2dp</item>
-        <item name="android:textColor">?colorOnSecondary</item>
-        <item name="android:backgroundTint">?colorSecondary</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:backgroundTint">?colorPrimary</item>
     </style>
 
     <style name="Button.Outlined">
-        <item name="strokeColor">?colorPrimary</item>
         <item name="android:textColor">?colorPrimary</item>
         <item name="android:backgroundTint">?android:colorBackground</item>
         <item name="rippleColor">?colorPrimaryVariant</item>

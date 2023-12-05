@@ -15,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="32dp"
-            android:layout_marginVertical="128dp"
+            android:layout_marginVertical="64dp"
             android:src="@drawable/typography"
             app:layout_constraintDimensionRatio="H,3:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_name"
-            style="@style/Input"
+            style="@style/Theme.Ingridentify.Input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -46,7 +46,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_email"
-            style="@style/Input"
+            style="@style/Theme.Ingridentify.Input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -64,7 +64,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_password"
-            style="@style/Input"
+            style="@style/Theme.Ingridentify.Input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -83,7 +83,7 @@
 
         <Button
             android:id="@+id/btn_register"
-            style="@style/Button"
+            style="@style/Theme.Ingridentify.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -102,7 +102,7 @@
 
         <Button
             android:id="@+id/btn_login"
-            style="@style/Button.Outlined"
+            style="@style/Theme.Ingridentify.Button.Outlined"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="96dp"

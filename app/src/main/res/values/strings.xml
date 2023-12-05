@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">Ingridentify</string>
     <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="logout">Logout</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="capture">Capture</string>
+    <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="register">Register</string>
+
     <string name="email_is_invalid">Email is invalid</string>
     <string name="password_must_be_at_least_n_characters">Password must be at least %d characters</string>
-    <string name="name">Name</string>
+    <string name="failed_to_start_camera">Failed to start camera</string>
+    <string name="camera_permission_denied">Camera permission is needed to use this feature</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_scan">Scan</string>
 </resources>

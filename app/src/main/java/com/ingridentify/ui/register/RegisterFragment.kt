@@ -23,9 +23,17 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnRegister.setOnClickListener {
+            doRegister()
+        }
+
         binding.btnLogin.setOnClickListener {
             requireView().findNavController().navigateUp()
         }
+    }
+
+    private fun doRegister() {
+        //TODO: Implement register logic
     }
 
     override fun onDestroyView() {

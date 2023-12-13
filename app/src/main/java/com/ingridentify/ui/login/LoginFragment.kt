@@ -36,6 +36,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun doLogin() {
+        //TODO: Implement login logic
         startActivity(Intent(requireContext(), MainActivity::class.java))
     }
 

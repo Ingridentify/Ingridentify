@@ -3,7 +3,11 @@
     <color name="white">#FAFAFA</color>
     <color name="black">#0F0C0C</color>
     <color name="blue">#42B0FF</color>
-    <color name="dark_blue">#141B22</color>
-    <color name="light_blue">#E9F3FA</color>
     <color name="green">#266428</color>
+    <color name="yellow">#E1E587</color>
+    <color name="alpha_green">#44266428</color>
+    <color name="dark_green">#141E12</color>
+    <color name="light_green">#D0DCD0</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

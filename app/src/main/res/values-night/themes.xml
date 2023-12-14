@@ -1,12 +1,14 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Ingridentify" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimary">@color/green</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/blue</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:colorBackground">@color/black</item>
         <item name="colorOnBackground">@color/white</item>
-        <item name="colorPrimaryVariant">@color/dark_blue</item>
+        <item name="colorPrimaryVariant">@color/alpha_green</item>
+        <item name="colorOnSecondaryContainer">@color/green</item>
+        <item name="colorOnSurface">@color/green</item>
     </style>
 </resources>

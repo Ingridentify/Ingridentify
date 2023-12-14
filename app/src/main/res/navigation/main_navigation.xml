@@ -18,10 +18,21 @@
         <action
             android:id="@+id/action_navigation_add_to_cameraFragment"
             app:destination="@id/cameraFragment" />
+        <argument
+            android:name="imageUri"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.ingridentify.ui.add.CameraFragment"
         android:label="fragment_camera"
-        tools:layout="@layout/fragment_camera" />
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/action_cameraFragment_to_navigation_add"
+            app:destination="@id/navigation_add"
+            app:popUpTo="@id/navigation_add"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

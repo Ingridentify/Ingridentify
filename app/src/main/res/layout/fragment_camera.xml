@@ -12,7 +12,7 @@
         android:layout_height="match_parent"/>
 
     <Button
-        android:id="@+id/captureButton"
+        android:id="@+id/btnCapture"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="32dp"
@@ -22,5 +22,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btnSwitch"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/ic_camera_switch"
+        android:foreground="@drawable/ic_camera_switch"
+        android:contentDescription="@string/capture"
+        app:layout_constraintBottom_toBottomOf="@id/btnCapture"
+        app:layout_constraintTop_toTopOf="@id/btnCapture"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

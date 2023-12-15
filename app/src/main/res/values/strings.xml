@@ -20,4 +20,6 @@
     <string name="title_home">Home</string>
     <string name="title_scan">Scan</string>
     <string name="failed_to_capture_image">Failed to capture image</string>
+    <string name="email_cannot_be_empty">Email cannot be empty</string>
+    <string name="password_cannot_be_empty">Password cannot be empty</string>
 </resources>

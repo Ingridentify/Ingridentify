@@ -23,7 +23,14 @@ To get started with the Ingridentify Android App, follow these steps:
 2. **Open in Android Studio:**
    Open the project in Android Studio and ensure you have the necessary dependencies installed.
 
-3. **Build and Run:**
+3. **Set Base URL:**
+   In the `local.properties` file, set the `BASE_URL` variable to the base URL of the Ingridentify API.
+
+   ```properties
+   BASE_URL=https://ingridentify-api.herokuapp.com
+   ```
+
+4. **Build and Run:**
    Build and run the app on your Android device or emulator.
 
 ## Project Structure
@@ -39,40 +46,105 @@ app
 │   |   ├── components
 │   |   |   ├── EmailEditText.kt
 │   |   |   └── PasswordEditText.kt
+│   |   ├── data
+│   |   |   ├── datastore
+│   |   |   |   └── UserPreference.kt
+│   |   |   ├── model
+│   |   |   |   └── UserModel.kt
+│   |   |   ├── remote
+│   |   |   |   ├── response
+|   │   |   |   |   ├── ErrorResponse.kt
+|   │   |   |   |   └── LoginResponse.kt
+│   |   |   |   └── retrofit
+|   │   |   |       ├── ApiConfig.kt
+|   │   |   |       └── ApiService.kt
+│   |   |   ├── Repository.kt
+│   |   |   └── Result.kt
 │   |   ├── ui
+│   |   |   ├── add
+│   |   |   |   ├── AddFragment.kt
+│   |   |   |   ├── AddViewModel.kt
+│   |   |   |   └── CameraFragment.kt
+│   |   |   ├── auth
+│   |   |   |   └── AuthActivity.kt
+│   |   |   ├── home
+│   |   |   |   └── HomeFragment.kt
 │   |   |   ├── login
-│   |   |   |   └── LoginFragment.kt
-│   |   |   └── register
-│   |   |       └── RegisterFragment.kt
-│   |   ├── AuthActivity.kt
-│   |   ├── MainActivity.kt
-│   |   └── SplashActivity.kt
+│   |   |   |   ├── LoginFragment.kt
+│   |   |   |   └── LoginViewModel.kt
+│   |   |   ├── main
+│   |   |   |   ├── MainActivity.kt
+│   |   |   |   └── MainViewModel.kt
+│   |   |   ├── register
+│   |   |   |   └── RegisterFragment.kt
+│   |   |   ├── SplashActivity.kt
+│   |   |   └── ViewModelFactory.kt
+│   |   └── utils
+│   |       └── FileUtils.kt
 │   ├── com.ingridentify (androidTest)
 |   |   └── ExampleInstrumentedTest.kt
 │   └── com.ingridentify (test)
 |       └── ExampleUnitTest.kt
 └── res
     ├── drawable
+    |   ├── ic_bottom_camera.xml
+    |   ├── ic_bottom_home.xml
+    |   ├── ic_camera_filled.xml
+    |   ├── ic_camera_outlined.xml
+    |   ├── ic_camera_switch.xml
+    |   ├── ic_circle.xml
     |   ├── ic_email.xml
+    |   ├── ic_home_filled.xml
+    |   ├── ic_home_outlined.xml
     |   ├── ic_launcher_background.xml
     |   ├── ic_launcher_foreground.xml
     |   ├── ic_lock.xml
+    |   ├── ic_logout.xml
     |   ├── ic_person.xml
-    |   └── typography.png
+    |   ├── ic_placeholder.xml
+    |   ├── typography (2)
+    |   |   ├── typography.png
+    |   |   └── typography.png (night)
+    |   └── typography_color.png
     ├── layout
     |   ├── activity_auth.xml
     |   ├── activity_main.xml
     |   ├── activity_splash.xml
+    |   ├── fragment_add.xml
+    |   ├── fragment_camera.xml
+    |   ├── fragment_home.xml
     |   ├── fragment_login.xml
     |   └── fragment_register.xml
+    ├── menu
+    |   ├── bottom_nav_menu.xml
+    |   └── main_menu.xml
+    ├── mipmap
+    |   ├── ic_launcher (6)
+    |   |   ├── ic_launcher.webp (hdpi)
+    |   |   ├── ic_launcher.webp (mdpi)
+    |   |   ├── ic_launcher.webp (xhdpi)
+    |   |   ├── ic_launcher.webp (xxhdpi)
+    |   |   ├── ic_launcher.webp (xxxhdpi)
+    |   |   └── ic_launcher.xml (anydpi-v26)
+    |   └── ic_launcher_round (6)
+    |       ├── ic_launcher_round.webp (hdpi)
+    |       ├── ic_launcher_round.webp (mdpi)
+    |       ├── ic_launcher_round.webp (xhdpi)
+    |       ├── ic_launcher_round.webp (xxhdpi)
+    |       ├── ic_launcher_round.webp (xxxhdpi)
+    |       └── ic_launcher_round.xml (anydpi-v26)
     ├── navigation
-    |   └── auth_navigation.xml
+    |   ├── auth_navigation.xml
+    |   └── main_navigation.xml
+    ├── values
+    |   ├── colors.xml
+    |   ├── strings.xml
+    |   └── themes (2)
+    |       ├── themes.xml
+    |       └── themes.xml (night)
     └── values
-        ├── colors.xml
-        ├── strings.xml
-        └── themes
-            ├── themes.xml
-            └── themes.xml (night)
+        ├── backup_rules.xml
+        └── data_extraction_rules.xml
 
 Gradle Scripts
 ├── build.gradle.kts (Project: Ingridentify)

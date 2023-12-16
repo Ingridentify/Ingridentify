@@ -1,4 +1,4 @@
-package com.ingridentify.ui
+package com.ingridentify.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

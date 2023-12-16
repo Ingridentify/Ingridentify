@@ -23,7 +23,7 @@ class AddFragment : Fragment() {
 
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<AddViewModel> { ViewModelFactory.getInstance() }
+    private val viewModel by viewModels<AddViewModel> { ViewModelFactory.getInstance(requireContext()) }
     private val args: AddFragmentArgs by navArgs()
 
     private val requestPermission = registerForActivityResult(

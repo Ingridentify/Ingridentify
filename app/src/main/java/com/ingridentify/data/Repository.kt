@@ -22,8 +22,8 @@ class Repository private constructor(
         try {
             val response: LoginResponse = apiService.login(email, password)
             val userModel = UserModel(
-                username = response.name,
-                name = response.username,
+                name = response.name,
+                username = response.username,
                 email = response.email,
                 token = response.token
             )

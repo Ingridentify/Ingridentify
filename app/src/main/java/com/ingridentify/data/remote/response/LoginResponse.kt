@@ -7,9 +7,6 @@ data class LoginResponse(
 	@field:SerializedName("name")
 	val name: String,
 
-	@field:SerializedName("username")
-	val username: String,
-
 	@field:SerializedName("email")
 	val email: String,
 

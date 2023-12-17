@@ -12,8 +12,8 @@ import androidx.navigation.findNavController
 import com.ingridentify.R
 import com.ingridentify.data.Result
 import com.ingridentify.databinding.FragmentLoginBinding
-import com.ingridentify.ui.main.MainActivity
 import com.ingridentify.ui.ViewModelFactory
+import com.ingridentify.ui.main.MainActivity
 
 class LoginFragment : Fragment() {
 
@@ -59,7 +59,6 @@ class LoginFragment : Fragment() {
     }
 
     private fun doLogin(email: String, password: String) {
-        //TODO: Implement login logic
         viewModel.login(email, password).observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Result.Loading -> {

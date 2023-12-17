@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.ingridentify.data.Repository
 import com.ingridentify.di.Injection
 import com.ingridentify.ui.add.AddViewModel
+import com.ingridentify.ui.home.HomeViewModel
 import com.ingridentify.ui.login.LoginViewModel
 import com.ingridentify.ui.main.MainViewModel
 
@@ -15,6 +16,7 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> MainViewModel(repository) as T
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(repository) as T
             modelClass.isAssignableFrom(AddViewModel::class.java) -> AddViewModel() as T
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> LoginViewModel(repository) as T
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)

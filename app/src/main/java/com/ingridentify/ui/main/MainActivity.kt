@@ -13,10 +13,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ingridentify.R
-import com.ingridentify.data.model.UserModel
 import com.ingridentify.databinding.ActivityMainBinding
-import com.ingridentify.ui.auth.AuthActivity
 import com.ingridentify.ui.ViewModelFactory
+import com.ingridentify.ui.auth.AuthActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         )))
         bottomNav.setupWithNavController(navController)
 
-        viewModel.checkSession().observe(this) { userModel: UserModel ->
-            if (userModel.token.isEmpty()) {
+        viewModel.checkSession().observe(this) { userModel ->
+            if (userModel == null) {
                 startActivity(Intent(this@MainActivity, AuthActivity::class.java))
                 finish()
             }

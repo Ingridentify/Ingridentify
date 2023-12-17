@@ -4,14 +4,17 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.devtools.ksp")
 }
 
+val bundleId = "com.ingridentify"
+
 android {
-    namespace = "com.ingridentify"
+    namespace = bundleId
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.ingridentify"
+        applicationId = bundleId
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -39,6 +42,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs = listOf("-opt-in=kotlin.RequiresOptIn")
     }
     buildFeatures {
         viewBinding = true
@@ -62,8 +66,13 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0-rc02")
     implementation("androidx.datastore:datastore-preferences:1.1.0-alpha07")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("androidx.paging:paging-runtime-ktx:3.1.1")
+    implementation("androidx.room:room-paging:2.6.0")
+    implementation("androidx.room:room-ktx:2.6.0")
+    implementation("com.github.bumptech.glide:glide:5.0.0-rc01")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    ksp("androidx.room:room-compiler:2.6.0")
 }

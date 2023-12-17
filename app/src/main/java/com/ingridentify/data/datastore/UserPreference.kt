@@ -17,26 +17,24 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     suspend fun saveSession(user: UserModel) {
         dataStore.edit { preferences ->
-            preferences[USERNAME] = user.username
             preferences[NAME] = user.name
             preferences[EMAIL] = user.email
             preferences[TOKEN] = user.token
         }
     }
 
-    fun getSession(): Flow<UserModel> {
+    fun getSession(): Flow<UserModel?> {
         return dataStore.data.map { preferences ->
-            UserModel(
-                username = preferences[USERNAME] ?: "",
-                name = preferences[NAME]?: "",
-                email = preferences[EMAIL] ?: "",
-                token = preferences[TOKEN] ?: ""
-            )
+            val name = preferences[NAME] ?: return@map null
+            val email = preferences[EMAIL] ?: return@map null
+            val token = preferences[TOKEN] ?: return@map null
+
+            UserModel(name, email, token)
         }
     }
 
     suspend fun getToken(): String {
-        val userModel = getSession().first()
+        val userModel = getSession().first() ?: return ""
         return "Bearer ${userModel.token}"
     }
 
@@ -47,7 +45,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     }
 
     companion object {
-        private val USERNAME = stringPreferencesKey("username")
         private val NAME = stringPreferencesKey("name")
         private val EMAIL = stringPreferencesKey("email")
         private val TOKEN = stringPreferencesKey("token")

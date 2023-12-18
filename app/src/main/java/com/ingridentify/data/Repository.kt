@@ -60,6 +60,13 @@ class Repository private constructor(
         pagingSourceFactory = { database.historyDao().getAll() }
     ).liveData
 
+    fun getBookmarkedRecipe() : LiveData<PagingData<RecipeModel>> = Pager(
+        config = PagingConfig(
+            pageSize = 10
+        ),
+        pagingSourceFactory = { database.recipeDao().getAll() }
+    ).liveData
+
     companion object {
         @Volatile
         private var instance: Repository? = null

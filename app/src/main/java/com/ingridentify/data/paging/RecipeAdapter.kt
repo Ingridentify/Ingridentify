@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ingridentify.data.model.RecipeModel
-import com.ingridentify.databinding.CardHistoryBinding
+import com.ingridentify.databinding.CardRecipeBinding
 
-class HistoryAdapter(private val onClick: (RecipeModel) -> Unit) :
-    PagingDataAdapter<RecipeModel, HistoryAdapter.HistoryViewHolder>(DIFF_CALLBACK) {
+class RecipeAdapter(private val onClick: (RecipeModel) -> Unit) :
+    PagingDataAdapter<RecipeModel, RecipeAdapter.HistoryViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
-        val binding: CardHistoryBinding = CardHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding: CardRecipeBinding = CardRecipeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HistoryViewHolder(binding)
     }
 
@@ -24,16 +24,16 @@ class HistoryAdapter(private val onClick: (RecipeModel) -> Unit) :
         }
     }
 
-    class HistoryViewHolder(private val binding: CardHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(history: RecipeModel, onClick: (RecipeModel) -> Unit) {
+    class HistoryViewHolder(private val binding: CardRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(recipe: RecipeModel, onClick: (RecipeModel) -> Unit) {
             Glide.with(itemView.context)
-                .load(history.imageUrl)
+                .load(recipe.imageUrl)
                 .into(binding.ivHistory)
 
-            binding.tvHistory.text = history.name
+            binding.tvHistory.text = recipe.name
 
             itemView.setOnClickListener {
-                onClick(history)
+                onClick(recipe)
             }
         }
     }

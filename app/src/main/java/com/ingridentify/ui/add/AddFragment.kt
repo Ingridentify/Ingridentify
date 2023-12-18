@@ -21,8 +21,7 @@ import com.ingridentify.ui.ViewModelFactory
 
 class AddFragment : Fragment() {
 
-    private var _binding: FragmentAddBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentAddBinding
     private val viewModel by viewModels<AddViewModel> { ViewModelFactory.getInstance(requireContext()) }
     private val args: AddFragmentArgs by navArgs()
 
@@ -48,7 +47,7 @@ class AddFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddBinding.inflate(inflater, container, false)
+        binding = FragmentAddBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -56,7 +55,7 @@ class AddFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         args.imageUri?.let { uriString: String ->
-            setImageUri(Uri.parse(uriString))
+            viewModel.setImageUri(Uri.parse(uriString))
         }
 
         binding.btnCamera.setOnClickListener {
@@ -72,7 +71,7 @@ class AddFragment : Fragment() {
         }
 
         viewModel.imageUri.observe(requireActivity()) { uri: Uri? ->
-            uri?.let(::setImageUri)
+            binding.ivThumbnail.setImageURI(uri)
         }
     }
 
@@ -81,18 +80,9 @@ class AddFragment : Fragment() {
         CAMERA_PERMISSION
     ) == PackageManager.PERMISSION_GRANTED
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     private fun startCamera() {
         val toCameraFragment = AddFragmentDirections.actionNavigationAddToCameraFragment()
         requireView().findNavController().navigate(toCameraFragment)
-    }
-
-    private fun setImageUri(uri: Uri) {
-        binding.ivThumbnail.setImageURI(uri)
     }
 
     companion object {

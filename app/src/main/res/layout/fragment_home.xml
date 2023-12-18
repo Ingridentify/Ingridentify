@@ -101,20 +101,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:listitem="@layout/card_history" />
+        tools:listitem="@layout/card_recipe" />
 
     <TextView
         android:id="@+id/tv_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/no_history"
+        android:text="@string/no_history_found"
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_description"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/rv_history"
+        app:layout_constraintEnd_toEndOf="@id/rv_history"
+        app:layout_constraintTop_toTopOf="@id/rv_history"
+        app:layout_constraintBottom_toBottomOf="@id/rv_history"/>
 
     <ProgressBar
         android:id="@+id/progress_bar"

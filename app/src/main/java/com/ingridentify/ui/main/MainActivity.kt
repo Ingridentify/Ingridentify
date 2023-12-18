@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, AppBarConfiguration(setOf(
             R.id.navigation_home,
-            R.id.navigation_add
+            R.id.navigation_add,
+            R.id.navigation_recipe
         )))
         bottomNav.setupWithNavController(navController)
 

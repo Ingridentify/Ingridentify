@@ -27,5 +27,8 @@
     <string name="picture_user">User Picture</string>
     <string name="edit">edit profile\n</string>
     <string name="welcome">Welcome!</string>
-    <string name="no_history">No history</string>
+    <string name="no_history_found">No history found</string>
+    <string name="title_recipe">Recipe</string>
+    <string name="title_detail">Recipe Detail</string>
+    <string name="no_recipe_found">No recipe found</string>
 </resources>

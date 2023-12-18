@@ -31,4 +31,10 @@
     <string name="title_recipe">Recipe</string>
     <string name="title_detail">Recipe Detail</string>
     <string name="no_recipe_found">No recipe found</string>
+    <string name="recipe_test">Avocado Juice\nIndulge in a refreshing treat with this simple yet delightful avocado juice recipe. Creamy ripe avocados blended to perfection with a touch of sugar and chilled water create a smooth, satisfying drink. Optionally, a hint of sweetened condensed milk elevates its richness. Garnish with ice for a cool twist, and relish this creamy, sweet concoction – a perfect balance of flavors in every sip.\n\nIngredients :\n2 ripe avocados\n2-3 tablespoons of sugar (adjust to taste)\n1 1/2 cups of cold water\nIce cubes (optional)\nSweetened condensed milk (optional, for extra sweetness)</string>
+    <string name="detail_recipe">Detail Recipe \n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_setting">Profile Setting</string>
+    <string name="username">Username\n</string>
 </resources>

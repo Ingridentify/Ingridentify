@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.ingridentify.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_add"
         android:name="com.ingridentify.ui.add.AddFragment"
@@ -19,7 +23,7 @@
             android:id="@+id/action_navigation_add_to_cameraFragment"
             app:destination="@id/cameraFragment" />
         <argument
-            android:name="imageUri"
+            android:name="image_uri"
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null" />
@@ -34,5 +38,23 @@
             app:destination="@id/navigation_add"
             app:popUpTo="@id/navigation_add"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_recipe"
+        android:name="com.ingridentify.ui.recipe.RecipeFragment"
+        android:label="@string/title_recipe"
+        tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_navigation_recipe_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.ingridentify.ui.detail.DetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="recipe_id"
+            app:argType="integer" />
     </fragment>
 </navigation>

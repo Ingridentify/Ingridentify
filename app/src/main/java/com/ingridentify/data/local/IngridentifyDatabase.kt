@@ -5,12 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ingridentify.data.local.dao.HistoryDao
+import com.ingridentify.data.local.dao.RecipeDao
 import com.ingridentify.data.local.dao.RemoteKeysDao
 import com.ingridentify.data.local.entity.HistoryEntity
+import com.ingridentify.data.local.entity.RecipeEntity
 import com.ingridentify.data.local.entity.RemoteKeys
 
 @Database(
     entities = [
+        RecipeEntity::class,
         HistoryEntity::class,
         RemoteKeys::class
     ],
@@ -18,6 +21,7 @@ import com.ingridentify.data.local.entity.RemoteKeys
     exportSchema = false
 )
 abstract class IngridentifyDatabase : RoomDatabase() {
+    abstract fun recipeDao(): RecipeDao
     abstract fun historyDao(): HistoryDao
     abstract fun remoteKeysDao(): RemoteKeysDao
 

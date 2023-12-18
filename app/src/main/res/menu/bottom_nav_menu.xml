@@ -8,4 +8,10 @@
         android:id="@+id/navigation_add"
         android:icon="@drawable/ic_bottom_camera"
         android:title="@string/title_scan" />
+
+
+    <item
+        android:id="@+id/navigation_favorite_recipe"
+        android:icon="@drawable/ic_book"
+        android:title="@string/title_recipe" />
 </menu>

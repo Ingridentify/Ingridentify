@@ -28,4 +28,12 @@
     <string name="edit">edit profile\n</string>
     <string name="welcome">Welcome!</string>
     <string name="no_history">No history</string>
+    <string name="title_recipe">Recipe</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="based_photo">Based on Scan</string>
+    <string name="food_recomend">Food recipe recomendation\n</string>
+    <string name="detail_recipe">Detail Recipe</string>
+    <string name="recipe_test">test</string>
+    <string name="your_favorite">Your favorite Recipe</string>
 </resources>

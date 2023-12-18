@@ -68,7 +68,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/edit"
-            android:src="@drawable/ic_add_photo" />
+            android:src="@drawable/ic_edit" />
 
     </RelativeLayout>
 

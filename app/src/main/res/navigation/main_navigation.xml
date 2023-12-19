@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_add"
@@ -57,4 +60,9 @@
             android:name="recipe_id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ingridentify.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

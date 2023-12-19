@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.paging.CombinedLoadStates
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ingridentify.data.paging.RecipeAdapter
 import com.ingridentify.databinding.FragmentRecipeBinding
@@ -35,17 +37,42 @@ class RecipeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvRecipes.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvRecipes.adapter = adapter
+        setupRecyclerView()
 
         viewModel.recipes.observe(viewLifecycleOwner) { recipes ->
             adapter.submitData(lifecycle, recipes)
+        }
+    }
 
-            if (adapter.itemCount == 0) {
-                binding.tvEmpty.visibility = View.VISIBLE
-            } else {
-                binding.tvEmpty.visibility = View.GONE
-            }
+
+
+    private fun setupRecyclerView() {
+        binding.rvRecipes.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvRecipes.adapter = adapter
+
+        adapter.addLoadStateListener { loadState: CombinedLoadStates ->
+            showLoading(loadState.refresh is LoadState.Loading)
+
+            if (loadState.append.endOfPaginationReached)
+                showEmpty(adapter.itemCount < 1)
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            binding.tvEmpty.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
+    }
+
+    private fun showEmpty(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.GONE
+            binding.tvEmpty.visibility = View.VISIBLE
+        } else {
+            binding.tvEmpty.visibility = View.GONE
         }
     }
 }

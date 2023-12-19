@@ -9,4 +9,8 @@ import com.ingridentify.data.model.RecipeModel
 interface RecipeDao {
     @Query("SELECT * FROM recipes")
     fun getAll(): PagingSource<Int, RecipeModel>
+
+    //FIXME: the recipe should not be nullable
+    @Query("SELECT * FROM recipes WHERE id = :id")
+    suspend fun getById(id: Int): RecipeModel?
 }

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -15,23 +14,23 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.common.util.concurrent.ListenableFuture
 import com.ingridentify.R
 import com.ingridentify.databinding.FragmentCameraBinding
 import com.ingridentify.utils.FileUtils
+import com.ingridentify.utils.enterFullscreen
+import com.ingridentify.utils.exitFullscreen
 
 class CameraFragment : Fragment() {
 
-    private var _binding: FragmentCameraBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentCameraBinding
     private var imageCapture: ImageCapture = ImageCapture.Builder().build()
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCameraBinding.inflate(inflater, container, false)
+        binding = FragmentCameraBinding.inflate(inflater, container, false)
 
         enterFullscreen()
 
@@ -50,20 +49,6 @@ class CameraFragment : Fragment() {
         }
     }
 
-    private fun enterFullscreen() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
-        bottomNav.visibility = View.GONE
-
-        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
-    }
-
-    private fun exitFullscreen() {
-        val bottomNav = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
-        bottomNav.visibility = View.VISIBLE
-
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
-    }
-
     override fun onResume() {
         super.onResume()
         startCamera()
@@ -71,7 +56,6 @@ class CameraFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
         exitFullscreen()
     }
 

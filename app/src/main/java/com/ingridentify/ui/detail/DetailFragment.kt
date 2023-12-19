@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 import com.ingridentify.R
 import com.ingridentify.databinding.FragmentDetailBinding
 import com.ingridentify.ui.ViewModelFactory
+import com.ingridentify.utils.hideBottomBar
+import com.ingridentify.utils.showBottomBar
 
 class DetailFragment : Fragment() {
 
@@ -22,6 +24,9 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
+
+        hideBottomBar()
+
         return binding.root
     }
 
@@ -35,7 +40,12 @@ class DetailFragment : Fragment() {
                 .with(requireContext())
                 .load(recipe.imageUrl)
                 .into(binding.ivPreview)
-            binding.tvRecipeDetail.text = getString(R.string.recipe_detail, recipe.name, recipe.cuisine, recipe.recipes)
+            binding.tvRecipeDetail.text = getString(R.string.recipe_detail, recipe.cuisine, recipe.recipes)
         }
     }}
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        showBottomBar()
+    }
 }

@@ -7,26 +7,32 @@ import com.google.android.material.textfield.TextInputEditText
 import com.ingridentify.R
 
 class PasswordEditText : TextInputEditText {
+    private var minLength: Int = 8
+    
     constructor(context: Context) : super(context) {
-        init()
+        init(null)
     }
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        init()
+        init(attrs)
     }
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init()
+        init(attrs)
     }
 
-    private fun init() {
+    private fun init(attrs: AttributeSet?) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.PasswordEditText)
+        minLength = typedArray.getInteger(R.styleable.PasswordEditText_min_length, 8)
+        typedArray.recycle()
+        
         inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
 
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().isEmpty()) { return }
-                if (s.toString().length >= 8) { return }
+                if (s.toString().length >= minLength) { return }
 
-                error = context.getString(R.string.password_must_be_at_least_n_characters, 8)
+                error = context.getString(R.string.password_must_be_at_least_n_characters, )
             }
             override fun afterTextChanged(s: android.text.Editable?) { }
         })

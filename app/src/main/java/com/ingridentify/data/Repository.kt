@@ -33,9 +33,10 @@ class Repository private constructor(
         emit(Result.Loading)
         try {
             val response: LoginResponse = apiService.login(email, password)
+            val userData = response.userData
             val userModel = UserModel(
-                name = response.name,
-                email = response.email,
+                name = userData.name,
+                email = userData.email,
                 token = response.token
             )
             userPreference.saveSession(userModel)

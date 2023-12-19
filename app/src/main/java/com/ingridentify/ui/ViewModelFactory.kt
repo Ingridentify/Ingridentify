@@ -12,6 +12,7 @@ import com.ingridentify.ui.login.LoginViewModel
 import com.ingridentify.ui.main.MainViewModel
 import com.ingridentify.ui.profile.ProfileViewModel
 import com.ingridentify.ui.recipe.RecipeViewModel
+import com.ingridentify.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -25,6 +26,7 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> DetailViewModel(repository) as T
             modelClass.isAssignableFrom(AddViewModel::class.java) -> AddViewModel() as T
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> LoginViewModel(repository) as T
+            modelClass.isAssignableFrom(RegisterViewModel::class.java) -> RegisterViewModel(repository) as T
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
     }

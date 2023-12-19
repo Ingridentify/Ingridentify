@@ -25,14 +25,17 @@
     <string name="title_profile">Your Profile</string>
 
     <string name="failed_to_capture_image">Failed to capture image</string>
+    <string name="name_cannot_be_empty">Name cannot be empty</string>
     <string name="email_cannot_be_empty">Email cannot be empty</string>
     <string name="password_cannot_be_empty">Password cannot be empty</string>
+
     <string name="email_hint">user@gmail.com</string>
     <string name="picture_user">User Picture</string>
     <string name="edit">edit profile</string>
     <string name="welcome">Welcome!</string>
     <string name="no_history_found">No history found</string>
     <string name="no_recipe_found">No recipe found</string>
+
     <string name="recipe_detail"><b>Cuisines:</b> %s\n<b>Recipe:</b>\n%s</string>
     <string name="profile_setting">Profile Setting</string>
     <string name="username">Username</string>

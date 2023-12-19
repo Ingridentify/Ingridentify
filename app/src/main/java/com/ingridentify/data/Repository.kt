@@ -24,6 +24,8 @@ class Repository private constructor(
     private val apiService: ApiService,
     private val userPreference: UserPreference
 ) {
+    private val historyDao = database.historyDao()
+    private val recipeDao = database.recipeDao()
 
     fun checkSession(): LiveData<UserModel?> = userPreference.getSession().asLiveData()
 
@@ -57,15 +59,20 @@ class Repository private constructor(
             pageSize = 10,
         ),
         remoteMediator = HistoryRemoteMediator(database, apiService, userPreference),
-        pagingSourceFactory = { database.historyDao().getAll() }
+        pagingSourceFactory = { historyDao.getAll() }
     ).liveData
 
     fun getBookmarkedRecipe() : LiveData<PagingData<RecipeModel>> = Pager(
         config = PagingConfig(
             pageSize = 10
         ),
-        pagingSourceFactory = { database.recipeDao().getAll() }
+        pagingSourceFactory = { recipeDao.getAll() }
     ).liveData
+
+    //FIXME: the recipe should not be nullable
+    fun getRecipeDetail(id: Int): LiveData<RecipeModel?> = liveData {
+        emit(recipeDao.getById(id) ?: historyDao.getById(id))
+    }
 
     companion object {
         @Volatile

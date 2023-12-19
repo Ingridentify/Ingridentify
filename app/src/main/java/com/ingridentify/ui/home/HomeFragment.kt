@@ -50,7 +50,6 @@ class HomeFragment : Fragment() {
                 viewModel.histories.observe(viewLifecycleOwner) { histories: PagingData<RecipeModel> ->
                     adapter.submitData(lifecycle, histories)
 
-                    //TODO: Handle empty state
                     if (adapter.itemCount == 0) {
                         binding.tvEmpty.visibility = View.VISIBLE
                     } else {

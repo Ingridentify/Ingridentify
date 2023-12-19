@@ -18,4 +18,8 @@ interface HistoryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(stories: List<HistoryEntity>)
+
+    //FIXME: the recipe should not be nullable
+    @Query("SELECT * FROM histories WHERE id = :id")
+    suspend fun getById(id: Int): RecipeModel?
 }

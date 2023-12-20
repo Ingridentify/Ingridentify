@@ -32,7 +32,7 @@ class PasswordEditText : TextInputEditText {
                 if (s.toString().isEmpty()) { return }
                 if (s.toString().length >= minLength) { return }
 
-                error = context.getString(R.string.password_must_be_at_least_n_characters, )
+                error = context.getString(R.string.password_must_be_at_least_n_characters, minLength)
             }
             override fun afterTextChanged(s: android.text.Editable?) { }
         })

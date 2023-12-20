@@ -16,8 +16,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ingridentify.R
+import com.ingridentify.data.Result
 import com.ingridentify.databinding.FragmentAddBinding
 import com.ingridentify.ui.ViewModelFactory
+import com.ingridentify.utils.FileUtils
 
 class AddFragment : Fragment() {
 
@@ -70,7 +72,53 @@ class AddFragment : Fragment() {
             galleryLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
 
-        viewModel.imageUri.observe(requireActivity()) { uri: Uri? ->
+        binding.btnUpload.setOnClickListener {
+            val imageUri = viewModel.imageUri.value
+
+            if (imageUri == null) {
+                Toast.makeText(
+                    requireContext(), getString(R.string.please_select_an_image_first),
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            val imageFile = FileUtils.uriToFile(imageUri, requireContext())
+            viewModel.upload(imageFile).observe(viewLifecycleOwner) { result: Result<String> ->
+                when (result) {
+                    is Result.Loading -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                        binding.btnUpload.isEnabled = false
+                        binding.btnUpload.text = ""
+                    }
+                    is Result.Success -> {
+                        binding.progressBar.visibility = View.GONE
+                        binding.btnUpload.isEnabled = true
+                        binding.btnUpload.text = getString(R.string.upload)
+
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.hmm_looks_like_s, result.data),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        val toResultFragment = AddFragmentDirections.actionNavigationAddToNavigationRecipe()
+                        requireView().findNavController().navigate(toResultFragment)
+                    }
+                    is Result.Error -> {
+                        binding.progressBar.visibility = View.GONE
+                        binding.btnUpload.isEnabled = true
+                        binding.btnUpload.text = getString(R.string.upload)
+
+                        Toast.makeText(
+                            requireContext(), result.error,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+
+        viewModel.imageUri.observe(viewLifecycleOwner) { uri: Uri? ->
             binding.ivThumbnail.setImageURI(uri)
         }
     }

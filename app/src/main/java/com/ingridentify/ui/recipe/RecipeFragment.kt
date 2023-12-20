@@ -44,8 +44,6 @@ class RecipeFragment : Fragment() {
         }
     }
 
-
-
     private fun setupRecyclerView() {
         binding.rvRecipes.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRecipes.adapter = adapter

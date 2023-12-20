@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiConfig {
     
     private val BASE_URL: String = BuildConfig.BASE_URL
+    private val ML_URL: String = BuildConfig.ML_URL
     
     fun getApiService(): ApiService {
         val retrofit = Retrofit.Builder()
@@ -24,5 +25,22 @@ object ApiConfig {
             )
             .build()
         return retrofit.create(ApiService::class.java)
+    }
+    
+    fun getMlService(): MLService {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(ML_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor(
+                        HttpLoggingInterceptor()
+                            .setLevel(HttpLoggingInterceptor.Level.BODY)
+                    )
+                    .build()
+            )
+            .build()
+        
+        return retrofit.create(MLService::class.java)
     }
 }

@@ -41,4 +41,6 @@
     <string name="username">Username</string>
     <string name="fab_favorite">Add to your favorite</string>
     <string name="recipe_name">Recipe Name</string>
+    <string name="please_select_an_image_first">Please select an image first</string>
+    <string name="hmm_looks_like_s">Hmm, looks like %s!</string>
 </resources>

@@ -30,7 +30,7 @@ class RecipeAdapter(private val onClick: (RecipeModel) -> Unit) :
                 .load(recipe.imageUrl)
                 .into(binding.ivHistory)
 
-            binding.tvHistory.text = recipe.name
+            binding.tvHistory.text = recipe.cuisine
 
             itemView.setOnClickListener {
                 onClick(recipe)

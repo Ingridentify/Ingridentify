@@ -43,4 +43,6 @@
     <string name="recipe_name">Recipe Name</string>
     <string name="please_select_an_image_first">Please select an image first</string>
     <string name="hmm_looks_like_s">Hmm, looks like %s!</string>
+    <string name="ingridients">Ingridients</string>
+    <string name="directions">Directions</string>
 </resources>

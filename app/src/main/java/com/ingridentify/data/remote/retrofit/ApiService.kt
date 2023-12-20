@@ -1,5 +1,6 @@
 package com.ingridentify.data.remote.retrofit
 
+import com.ingridentify.data.remote.response.DetailResponse
 import com.ingridentify.data.remote.response.LoginResponse
 import com.ingridentify.data.remote.response.RecipeResponse
 import com.ingridentify.data.remote.response.RegisterResponse
@@ -33,10 +34,9 @@ interface ApiService {
         @Path("name") name: String
     ): RecipeResponse
 
-//    @GET("histories")
-//    suspend fun getHistory(
-//        @Header("Authorization") token: String,
-//        @Query("page") page: Int,
-//        @Query("limit") limit: Int
-//    ): List<RecipeResponse>
+    @GET("recipes/detail/{id}")
+    suspend fun getRecipeDetail(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): DetailResponse
 }

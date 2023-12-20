@@ -7,7 +7,7 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.ingridentify.data.datastore.UserPreference
 import com.ingridentify.data.local.IngridentifyDatabase
-import com.ingridentify.data.local.entity.HistoryEntity
+import com.ingridentify.data.local.entity.RecipeEntity
 import com.ingridentify.data.local.entity.RemoteKeys
 import com.ingridentify.data.model.RecipeModel
 import com.ingridentify.data.remote.retrofit.ApiService
@@ -77,7 +77,7 @@ class HistoryRemoteMediator(
 
         try {
             //TODO: get the actual data from the API
-            val recipes = listOf<HistoryEntity>()
+            val recipes = listOf<RecipeEntity>()
 //            val recipes = apiService.getHistory(
 //                token = userPreference.getToken(),
 //                page = page,
@@ -89,7 +89,7 @@ class HistoryRemoteMediator(
 
             database.withTransaction {
                 if (loadType == LoadType.REFRESH) {
-                    database.historyDao().deleteAll()
+                    database.recipeDao().clear()
                     database.remoteKeysDao().deleteAll()
                 }
 
@@ -100,7 +100,7 @@ class HistoryRemoteMediator(
                 }
 
                 database.remoteKeysDao().insertAll(keys)
-                database.historyDao().insertAll(recipes)
+                database.recipeDao().insertAll(recipes)
             }
 
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)

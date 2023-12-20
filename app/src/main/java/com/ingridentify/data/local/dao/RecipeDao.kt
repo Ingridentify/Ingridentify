@@ -14,7 +14,7 @@ interface RecipeDao {
 
     //FIXME: the recipe should not be nullable
     @Query("SELECT * FROM recipes WHERE id = :id")
-    suspend fun getById(id: Int): RecipeModel?
+    suspend fun getById(id: String): RecipeModel?
 
     @Insert
     suspend fun insertAll(recipes: List<RecipeEntity>)

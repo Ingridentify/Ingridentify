@@ -63,7 +63,7 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="recipe_id"
-            app:argType="integer" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"

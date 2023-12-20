@@ -1,9 +1,23 @@
 package com.ingridentify.data.model
 
+import com.ingridentify.data.local.entity.RecipeEntity
+
 data class RecipeModel(
-    val id: Int,
+    val id: String,
     val name: String,
     val cuisine: String,
-    val recipes: String,
-    val imageUrl: String
-)
+    val ingridient: List<String>,
+    val recipes: List<String>,
+    val urlImage: String
+){
+    fun toRecipeEntity(): RecipeEntity {
+        return RecipeEntity(
+            id = id,
+            name = name,
+            cuisine = cuisine,
+            ingridient = ingridient,
+            recipes = recipes,
+            urlImage = urlImage
+        )
+    }
+}

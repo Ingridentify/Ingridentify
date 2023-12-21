@@ -11,5 +11,6 @@ data class RecipeEntity(
     val cuisine: String,
     val ingridient: List<String>,
     val recipes: List<String>,
-    val urlImage: String
+    val urlImage: String,
+    val bookmarked: Boolean = false
 )

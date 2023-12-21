@@ -27,10 +27,10 @@ class RecipeAdapter(private val onClick: (RecipeModel) -> Unit) :
     class HistoryViewHolder(private val binding: CardRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(recipe: RecipeModel, onClick: (RecipeModel) -> Unit) {
             Glide.with(itemView.context)
-                .load(recipe.imageUrl)
+                .load(recipe.urlImage)
                 .into(binding.ivHistory)
 
-            binding.tvHistory.text = recipe.name
+            binding.tvHistory.text = recipe.cuisine
 
             itemView.setOnClickListener {
                 onClick(recipe)
@@ -48,8 +48,9 @@ class RecipeAdapter(private val onClick: (RecipeModel) -> Unit) :
                 return oldItem.id == newItem.id &&
                         oldItem.name == newItem.name &&
                         oldItem.cuisine == newItem.cuisine &&
+                        oldItem.ingridient == newItem.ingridient &&
                         oldItem.recipes == newItem.recipes &&
-                        oldItem.imageUrl == newItem.imageUrl
+                        oldItem.urlImage == newItem.urlImage
             }
         }
     }

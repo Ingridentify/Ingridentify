@@ -60,7 +60,8 @@
             <com.ingridentify.components.PasswordEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:min_length="8"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

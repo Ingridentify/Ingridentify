@@ -24,7 +24,16 @@ android {
 
         val properties = Properties()
         properties.load(rootProject.file("local.properties").inputStream())
-        buildConfigField("String", "BASE_URL", '"' + (properties.getProperty("BASE_URL") ?: "http://localhost:3000") + '"')
+        buildConfigField(
+            "String",
+            "BASE_URL",
+            '"' + (properties.getProperty("BASE_URL") ?: "https://ingridentify-api-xb5hnzr2ba-et.a.run.app/ingridentify/") + '"'
+        )
+        buildConfigField(
+            "String",
+            "ML_URL",
+            '"' + (properties.getProperty("ML_URL") ?: "https://ml-api-xb5hnzr2ba-et.a.run.app/ingridentify/") + '"'
+        )
     }
 
     buildTypes {

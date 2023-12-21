@@ -8,13 +8,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_recipes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/card_recipe"/>
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/card_recipe" />
 
     <TextView
         android:id="@+id/tv_empty"

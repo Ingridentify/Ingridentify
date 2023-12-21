@@ -2,22 +2,19 @@ package com.ingridentify.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
+data class RegisterResponse(
 
-	@field:SerializedName("userData")
-	val userData: UserData,
+	@field:SerializedName("data")
+	val data: Data? = null,
 
 	@field:SerializedName("message")
 	val message: String,
-
-	@field:SerializedName("status")
-	val status: String,
 
 	@field:SerializedName("token")
 	val token: String
 )
 
-data class UserData(
+data class Data(
 
 	@field:SerializedName("createdAt")
 	val createdAt: String,

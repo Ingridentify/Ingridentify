@@ -35,7 +35,6 @@
     <string name="welcome">Welcome!</string>
     <string name="no_recipe_found">No recipe found</string>
 
-    <string name="recipe_detail"><b>Cuisines:</b> %s\n<b>Recipe:</b>\n%s</string>
     <string name="profile_setting">Profile Setting</string>
     <string name="username">Username</string>
     <string name="fab_favorite">Add to your favorite</string>

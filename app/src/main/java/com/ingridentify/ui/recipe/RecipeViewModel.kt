@@ -9,5 +9,7 @@ import com.ingridentify.data.Repository
 import com.ingridentify.data.model.RecipeModel
 
 class RecipeViewModel(private val repository: Repository) : ViewModel() {
-    val recipes: LiveData<PagingData<RecipeModel>> = repository.getBookmarkedRecipe().cachedIn(viewModelScope)
+    fun getRecipes(name: String?): LiveData<PagingData<RecipeModel>> {
+        return repository.getRecipesByName(name).cachedIn(viewModelScope)
+    }
 }

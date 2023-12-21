@@ -72,47 +72,30 @@ class AddFragment : Fragment() {
             galleryLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
 
-        binding.btnUpload.setOnClickListener {
+        binding.btnPredict.setOnClickListener {
             val imageUri = viewModel.imageUri.value
 
             if (imageUri == null) {
-                Toast.makeText(
-                    requireContext(), getString(R.string.please_select_an_image_first),
-                    Toast.LENGTH_SHORT
-                ).show()
+                showToast(getString(R.string.please_select_an_image_first))
                 return@setOnClickListener
             }
 
             val imageFile = FileUtils.uriToFile(imageUri, requireContext())
-            viewModel.upload(imageFile).observe(viewLifecycleOwner) { result: Result<String> ->
+            viewModel.predict(imageFile).observe(viewLifecycleOwner) { result: Result<String> ->
                 when (result) {
                     is Result.Loading -> {
-                        binding.progressBar.visibility = View.VISIBLE
-                        binding.btnUpload.isEnabled = false
-                        binding.btnUpload.text = ""
+                        setLoading(true)
                     }
+
                     is Result.Success -> {
-                        binding.progressBar.visibility = View.GONE
-                        binding.btnUpload.isEnabled = true
-                        binding.btnUpload.text = getString(R.string.upload)
-
-                        Toast.makeText(
-                            requireContext(),
-                            getString(R.string.hmm_looks_like_s, result.data),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        val toResultFragment = AddFragmentDirections.actionNavigationAddToNavigationRecipe()
-                        requireView().findNavController().navigate(toResultFragment)
+                        setLoading(false)
+                        showToast(getString(R.string.hmm_looks_like_s, result.data))
+                        getRecipe(result.data)
                     }
-                    is Result.Error -> {
-                        binding.progressBar.visibility = View.GONE
-                        binding.btnUpload.isEnabled = true
-                        binding.btnUpload.text = getString(R.string.upload)
 
-                        Toast.makeText(
-                            requireContext(), result.error,
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    is Result.Error -> {
+                        setLoading(false)
+                        showToast(result.error)
                     }
                 }
             }
@@ -120,6 +103,45 @@ class AddFragment : Fragment() {
 
         viewModel.imageUri.observe(viewLifecycleOwner) { uri: Uri? ->
             binding.ivThumbnail.setImageURI(uri)
+        }
+    }
+
+    private fun getRecipe(name: String) {
+        viewModel.getRecipe(name).observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Loading -> {
+                    setLoading(true)
+                }
+
+                is Result.Success -> {
+                    setLoading(false)
+                    val toResultFragment = AddFragmentDirections.actionNavigationAddToNavigationRecipe(
+                        name = name
+                    )
+                    requireView().findNavController().navigate(toResultFragment)
+                }
+
+                is Result.Error -> {
+                    setLoading(false)
+                    showToast(result.error)
+                }
+            }
+        }
+    }
+
+    private fun showToast(message: String) = Toast.makeText(
+        requireContext(), message, Toast.LENGTH_SHORT
+    ).show()
+
+    private fun setLoading(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.btnPredict.isEnabled = false
+            binding.btnPredict.text = ""
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.btnPredict.isEnabled = true
+            binding.btnPredict.text = getString(R.string.predict)
         }
     }
 

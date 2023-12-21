@@ -8,7 +8,8 @@ data class RecipeModel(
     val cuisine: String,
     val ingridient: List<String>,
     val recipes: List<String>,
-    val urlImage: String
+    val urlImage: String,
+    val bookmarked: Boolean = false
 ){
     fun toRecipeEntity(): RecipeEntity {
         return RecipeEntity(
@@ -17,7 +18,8 @@ data class RecipeModel(
             cuisine = cuisine,
             ingridient = ingridient,
             recipes = recipes,
-            urlImage = urlImage
+            urlImage = urlImage,
+            bookmarked = bookmarked
         )
     }
 }

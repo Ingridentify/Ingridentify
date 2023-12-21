@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.ingridentify.ui.ViewModelFactory
 class RecipeFragment : Fragment() {
 
     private lateinit var binding: FragmentRecipeBinding
+    private val args: RecipeFragmentArgs by navArgs()
     private val viewModel by viewModels<RecipeViewModel> { ViewModelFactory.getInstance(requireContext()) }
     private val adapter: RecipeAdapter by lazy {
         RecipeAdapter { recipe ->
@@ -39,7 +41,7 @@ class RecipeFragment : Fragment() {
 
         setupRecyclerView()
 
-        viewModel.recipes.observe(viewLifecycleOwner) { recipes ->
+        viewModel.getRecipes(args.name).observe(viewLifecycleOwner) { recipes ->
             adapter.submitData(lifecycle, recipes)
         }
     }

@@ -48,14 +48,14 @@
             app:layout_constraintBottom_toBottomOf="@id/btn_gallery" />
 
         <Button
-            android:id="@+id/btn_upload"
+            android:id="@+id/btn_predict"
             style="@style/Theme.Ingridentify.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
-            android:text="@string/upload"
+            android:text="@string/predict"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,9 +64,9 @@
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progress_bar"
             style="@style/ProgressBar"
-            app:layout_constraintBottom_toBottomOf="@id/btn_upload"
-            app:layout_constraintEnd_toEndOf="@id/btn_upload"
-            app:layout_constraintStart_toStartOf="@id/btn_upload"
-            app:layout_constraintTop_toTopOf="@id/btn_upload" />
+            app:layout_constraintBottom_toBottomOf="@id/btn_predict"
+            app:layout_constraintEnd_toEndOf="@id/btn_predict"
+            app:layout_constraintStart_toStartOf="@id/btn_predict"
+            app:layout_constraintTop_toTopOf="@id/btn_predict" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

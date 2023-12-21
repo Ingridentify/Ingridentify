@@ -6,15 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.ingridentify.data.local.dao.RecipeDao
-import com.ingridentify.data.local.dao.RemoteKeysDao
 import com.ingridentify.data.local.entity.RecipeEntity
-import com.ingridentify.data.local.entity.RemoteKeys
 import com.ingridentify.utils.Converter
 
 @Database(
     entities = [
-        RecipeEntity::class,
-        RemoteKeys::class
+        RecipeEntity::class
     ],
     version = 1,
     exportSchema = false
@@ -22,7 +19,6 @@ import com.ingridentify.utils.Converter
 @TypeConverters(Converter::class)
 abstract class IngridentifyDatabase : RoomDatabase() {
     abstract fun recipeDao(): RecipeDao
-    abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object {
         @Volatile

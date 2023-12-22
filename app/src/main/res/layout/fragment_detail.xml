@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.detail.DetailFragment">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_recipe_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/recipe_name"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_preview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/recipe_name"
+                android:src="@drawable/fruit"
+                app:layout_constraintEnd_toEndOf="@id/tv_recipe_name"
+                app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_recipe_name" />
+
+            <TextView
+                android:id="@+id/label_ingridients"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/ingridients"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="@id/tv_recipe_name"
+                app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
+                app:layout_constraintTop_toBottomOf="@id/iv_preview" />
+
+            <TextView
+                android:id="@+id/tv_ingridients"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="@id/tv_recipe_name"
+                app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
+                app:layout_constraintTop_toBottomOf="@id/label_ingridients"
+                tools:text="@string/ingridients" />
+
+            <TextView
+                android:id="@+id/label_directions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="112dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/directions"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toEndOf="@id/tv_recipe_name"
+                app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_ingridients" />
+
+            <TextView
+                android:id="@+id/tv_directions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="112dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textAlignment="textStart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tv_recipe_name"
+                app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
+                app:layout_constraintTop_toBottomOf="@id/label_directions"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@string/directions" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        style="@style/Theme.Ingridentify.Button.Floating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/fab_favorite"
+        android:src="@drawable/ic_favorite_outlined"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

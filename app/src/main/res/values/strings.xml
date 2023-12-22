@@ -1,3 +1,46 @@
 <resources>
     <string name="app_name">Ingridentify</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="logout">Logout</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="predict">Predict</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="capture">Capture</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <string name="email_is_invalid">Email is invalid</string>
+    <string name="password_must_be_at_least_n_characters">Password must be at least %d characters</string>
+    <string name="failed_to_start_camera">Failed to start camera</string>
+    <string name="camera_permission_denied">Camera permission is needed to use this feature</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_scan">Scan</string>
+    <string name="your_saved_recipes">Your saved recipes</string>
+    <string name="title_recipe">Recipe</string>
+    <string name="title_detail">Recipe Detail</string>
+    <string name="title_profile">Your Profile</string>
+
+    <string name="failed_to_capture_image">Failed to capture image</string>
+    <string name="name_cannot_be_empty">Name cannot be empty</string>
+    <string name="email_cannot_be_empty">Email cannot be empty</string>
+    <string name="password_cannot_be_empty">Password cannot be empty</string>
+
+    <string name="email_hint">user@gmail.com</string>
+    <string name="picture_user">User Picture</string>
+    <string name="edit">edit profile</string>
+    <string name="welcome">Welcome!</string>
+    <string name="no_recipe_found">No recipe found</string>
+
+    <string name="profile_setting">Profile Setting</string>
+    <string name="username">Username</string>
+    <string name="fab_favorite">Add to your favorite</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="please_select_an_image_first">Please select an image first</string>
+    <string name="hmm_looks_like_s">Hmm, looks like %s!</string>
+    <string name="ingridients">Ingridients</string>
+    <string name="directions">Directions</string>
 </resources>
